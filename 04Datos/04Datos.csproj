@@ -46,6 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd_paisesDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bd_paisesDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="cursosformDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cursosformDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="fmAcercade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmAcercade.Designer.cs">
+      <DependentUpon>fmAcercade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmAlumno.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmAlumno.Designer.cs">
+      <DependentUpon>fmAlumno.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmAlumnosCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmAlumnosCursos.Designer.cs">
+      <DependentUpon>fmAlumnosCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMantenAlumnos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMantenAlumnos.Designer.cs">
+      <DependentUpon>fmMantenAlumnos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fmMantenCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmMantenCursos.Designer.cs">
+      <DependentUpon>fmMantenCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +94,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="fmAlumnosCursos.resx">
+      <DependentUpon>fmAlumnosCursos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,6 +106,28 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="bd_paisesDataSet.xsc">
+      <DependentUpon>bd_paisesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bd_paisesDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bd_paisesDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bd_paisesDataSet.xss">
+      <DependentUpon>bd_paisesDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cursosformDataSet.xsc">
+      <DependentUpon>cursosformDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="cursosformDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cursosformDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="cursosformDataSet.xss">
+      <DependentUpon>cursosformDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
