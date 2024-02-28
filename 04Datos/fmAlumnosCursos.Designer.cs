@@ -94,6 +94,14 @@
             this.alumnosTableAdapter = new _04Datos.cursosformDataSetTableAdapters.alumnosTableAdapter();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.cbFiltrarNivel = new System.Windows.Forms.ToolStripComboBox();
+            this.cbMostrarMujeres = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.rbOrdenarNombre = new System.Windows.Forms.RadioButton();
+            this.rbOrdenarId = new System.Windows.Forms.RadioButton();
+            this.cbAscendente = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cbFiltrarSexo = new System.Windows.Forms.ComboBox();
+            this.ckFiltrarSexo = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -108,6 +116,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.alumnosBindingNavigator)).BeginInit();
             this.alumnosBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoscursosBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -708,11 +718,106 @@
             this.cbFiltrarNivel.Size = new System.Drawing.Size(121, 28);
             this.cbFiltrarNivel.SelectedIndexChanged += new System.EventHandler(this.cbFiltrarNivel_SelectedIndexChanged);
             // 
+            // cbMostrarMujeres
+            // 
+            this.cbMostrarMujeres.AutoSize = true;
+            this.cbMostrarMujeres.Location = new System.Drawing.Point(12, 247);
+            this.cbMostrarMujeres.Name = "cbMostrarMujeres";
+            this.cbMostrarMujeres.Size = new System.Drawing.Size(154, 20);
+            this.cbMostrarMujeres.TabIndex = 5;
+            this.cbMostrarMujeres.Text = "Mostrar solo mujeres";
+            this.cbMostrarMujeres.UseVisualStyleBackColor = true;
+            this.cbMostrarMujeres.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cbAscendente);
+            this.groupBox1.Controls.Add(this.rbOrdenarId);
+            this.groupBox1.Controls.Add(this.rbOrdenarNombre);
+            this.groupBox1.Location = new System.Drawing.Point(0, 525);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(398, 62);
+            this.groupBox1.TabIndex = 6;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
+            // rbOrdenarNombre
+            // 
+            this.rbOrdenarNombre.AutoSize = true;
+            this.rbOrdenarNombre.Location = new System.Drawing.Point(13, 22);
+            this.rbOrdenarNombre.Name = "rbOrdenarNombre";
+            this.rbOrdenarNombre.Size = new System.Drawing.Size(149, 20);
+            this.rbOrdenarNombre.TabIndex = 0;
+            this.rbOrdenarNombre.TabStop = true;
+            this.rbOrdenarNombre.Text = "Ordenar por nombre";
+            this.rbOrdenarNombre.UseVisualStyleBackColor = true;
+            this.rbOrdenarNombre.CheckedChanged += new System.EventHandler(this.rbOrdenarNombre_CheckedChanged);
+            // 
+            // rbOrdenarId
+            // 
+            this.rbOrdenarId.AutoSize = true;
+            this.rbOrdenarId.Location = new System.Drawing.Point(168, 22);
+            this.rbOrdenarId.Name = "rbOrdenarId";
+            this.rbOrdenarId.Size = new System.Drawing.Size(116, 20);
+            this.rbOrdenarId.TabIndex = 1;
+            this.rbOrdenarId.TabStop = true;
+            this.rbOrdenarId.Text = "Ordenar por ID";
+            this.rbOrdenarId.UseVisualStyleBackColor = true;
+            this.rbOrdenarId.CheckedChanged += new System.EventHandler(this.rbOrdenarNombre_CheckedChanged);
+            // 
+            // cbAscendente
+            // 
+            this.cbAscendente.AutoSize = true;
+            this.cbAscendente.Location = new System.Drawing.Point(290, 23);
+            this.cbAscendente.Name = "cbAscendente";
+            this.cbAscendente.Size = new System.Drawing.Size(101, 20);
+            this.cbAscendente.TabIndex = 2;
+            this.cbAscendente.Text = "Ascendente";
+            this.cbAscendente.UseVisualStyleBackColor = true;
+            this.cbAscendente.CheckedChanged += new System.EventHandler(this.rbOrdenarNombre_CheckedChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.ckFiltrarSexo);
+            this.groupBox2.Controls.Add(this.cbFiltrarSexo);
+            this.groupBox2.Location = new System.Drawing.Point(410, 530);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(524, 57);
+            this.groupBox2.TabIndex = 7;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "groupBox2";
+            // 
+            // cbFiltrarSexo
+            // 
+            this.cbFiltrarSexo.FormattingEnabled = true;
+            this.cbFiltrarSexo.Items.AddRange(new object[] {
+            "VARON",
+            "MUJER"});
+            this.cbFiltrarSexo.Location = new System.Drawing.Point(7, 22);
+            this.cbFiltrarSexo.Name = "cbFiltrarSexo";
+            this.cbFiltrarSexo.Size = new System.Drawing.Size(168, 24);
+            this.cbFiltrarSexo.TabIndex = 0;
+            this.cbFiltrarSexo.SelectedIndexChanged += new System.EventHandler(this.cbFiltrarSexo_SelectedIndexChanged);
+            // 
+            // ckFiltrarSexo
+            // 
+            this.ckFiltrarSexo.AutoSize = true;
+            this.ckFiltrarSexo.Location = new System.Drawing.Point(192, 22);
+            this.ckFiltrarSexo.Name = "ckFiltrarSexo";
+            this.ckFiltrarSexo.Size = new System.Drawing.Size(62, 20);
+            this.ckFiltrarSexo.TabIndex = 1;
+            this.ckFiltrarSexo.Text = "Filtrar";
+            this.ckFiltrarSexo.UseVisualStyleBackColor = true;
+            this.ckFiltrarSexo.CheckedChanged += new System.EventHandler(this.ckFiltrarSexo_CheckedChanged);
+            // 
             // fmAlumnosCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(946, 684);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.cbMostrarMujeres);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel3);
@@ -741,6 +846,10 @@
             this.alumnosBindingNavigator.ResumeLayout(false);
             this.alumnosBindingNavigator.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.alumnoscursosBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -812,5 +921,13 @@
         public System.Windows.Forms.Label lbMediaEdad;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripComboBox cbFiltrarNivel;
+        private System.Windows.Forms.CheckBox cbMostrarMujeres;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.RadioButton rbOrdenarId;
+        private System.Windows.Forms.RadioButton rbOrdenarNombre;
+        private System.Windows.Forms.CheckBox cbAscendente;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ComboBox cbFiltrarSexo;
+        private System.Windows.Forms.CheckBox ckFiltrarSexo;
     }
 }

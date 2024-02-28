@@ -150,5 +150,85 @@ namespace _04Datos
         {
 
         }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            // Verifica si el CheckBox está marcado
+            if (cbMostrarMujeres.Checked)
+            {
+                // Aplica un filtro para mostrar solo mujeres
+                alumnosBindingSource.Filter = "sexo = 'MUJER'";
+            }
+            else
+            {
+                // Remueve el filtro para mostrar todos los alumnos
+                alumnosBindingSource.RemoveFilter();
+            }
+        }
+
+        private void rbOrdenarNombre_CheckedChanged(object sender, EventArgs e) //ver practica 01
+        {
+            AplicarOrdenamiento();
+        }
+
+        private void AplicarOrdenamiento()
+        {
+            string campoOrdenamiento = rbOrdenarNombre.Checked ? "nombrealu" : "idalumno";
+            string direccionOrdenamiento = cbAscendente.Checked ? "ASC" : "DESC";
+
+            // Asume que alumnosBindingSource es el BindingSource para tu DataGridView
+            alumnosBindingSource.Sort = $"{campoOrdenamiento} {direccionOrdenamiento}";
+        }
+
+        private void cbFiltrarSexo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Re-aplica el filtro solo si el CheckBox está marcado.
+            if (ckFiltrarSexo.Checked)
+            {
+                AplicarFiltroSexo();
+            }
+        }
+        private void AplicarFiltroSexo()
+        {
+             // Inicialmente, establece el filtro para incluir solo alumnos del curso seleccionado.
+    string filtroCurso = "";
+    if (cursosDataGridView.CurrentRow != null)
+    {
+        var cursoId = Convert.ToInt32(cursosDataGridView.CurrentRow.Cells[0].Value);
+        filtroCurso = $"IdCurso = {cursoId}";
+    }
+
+    // Si el CheckBox para filtrar por sexo está marcado, añade el filtro de sexo.
+    if (ckFiltrarSexo.Checked && cbFiltrarSexo.SelectedItem != null)
+    {
+        string filtroSexo = cbFiltrarSexo.SelectedItem.ToString();
+        // Si ya hay un filtro de curso aplicado, añade "AND" para combinar los filtros.
+        if (!string.IsNullOrEmpty(filtroCurso))
+        {
+            filtroCurso += $" AND sexo = '{filtroSexo}'";
+        }
+        else
+        {
+            filtroCurso = $"sexo = '{filtroSexo}'";
+        }
+    }
+
+    // Aplica el filtro combinado al BindingSource de alumnos.
+    alumnosBindingSource.Filter = filtroCurso;
+           /* if (ckFiltrarSexo.Checked && cbFiltrarSexo.SelectedItem != null)
+            {
+                string filtroSexo = cbFiltrarSexo.SelectedItem.ToString();
+                alumnosBindingSource.Filter = $"sexo = '{filtroSexo}'";
+            }
+            else
+            {
+                alumnosBindingSource.RemoveFilter();
+            }*/
+        }
+
+        private void ckFiltrarSexo_CheckedChanged(object sender, EventArgs e)
+        {
+            AplicarFiltroSexo();
+        }
     }
 }
