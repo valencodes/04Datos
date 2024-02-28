@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -35,9 +36,48 @@ namespace _04Datos
             // TODO: esta línea de código carga datos en la tabla 'cursosformDataSet.cursos' Puede moverla o quitarla según sea necesario.
             this.cursosTableAdapter.Fill(this.cursosformDataSet.cursos);
 
+            // Conexión a la base de datos para obtener niveles distintos
+            using (OleDbConnection connection = new OleDbConnection(Properties.Settings.Default.cursosformConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+                    using (OleDbCommand command = new OleDbCommand("SELECT DISTINCT nivel FROM cursos", connection))
+                    {
+                        using (OleDbDataReader reader = command.ExecuteReader())
+                        {
+                            cbFiltrarNivel.Items.Clear();
+                            cbFiltrarNivel.Items.Add("Todos"); // Añade el ítem "Todos" al principio
+                            while (reader.Read())
+                            {
+                                cbFiltrarNivel.Items.Add(reader.GetString(0)); // Asume que la columna Nivel es un string
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error al cargar niveles de cursos: {ex.Message}");
+                }
+            }
+
+            // Configura el ComboBox para mostrar todos los cursos al inicio
+            cbFiltrarNivel.SelectedIndex = 0; // Selecciona el ítem "Todos" por defecto
 
         }
 
+        private void cbFiltrarNivel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbFiltrarNivel.SelectedItem.ToString() == "Todos")
+            {
+                cursosBindingSource.RemoveFilter(); // Quita el filtro si se selecciona "Todos"
+            }
+            else
+            {
+                // Aplica un filtro basado en la selección del nivel
+                cursosBindingSource.Filter = $"Nivel = '{cbFiltrarNivel.SelectedItem.ToString()}'";
+            }
+        }
         private void alumnosDataGridView_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             int totalMujeres = 0;
@@ -104,6 +144,11 @@ namespace _04Datos
                 // Opcionalmente, actualiza el nombre del curso seleccionado en un Label
                 lbCurso.Text = $"Curso: {nombreCurso}  {totalAlumnos}";
             }
+        }
+
+        private void toolStripLabel1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
